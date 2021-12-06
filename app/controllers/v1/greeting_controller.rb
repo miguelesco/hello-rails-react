@@ -1,10 +1,6 @@
 class V1::GreetingController < ApplicationController
   def index 
-    render json: { :greeting => [
-      {
-        :id => 1,
-        :content => "Hello"
-      },
-    ] }.to_json
+    @greeting = Greeting.all
+    render json: { :greetings => @greeting}.to_json
   end
 end

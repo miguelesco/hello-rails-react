@@ -1,14 +1,16 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+
+import thunk from "redux-thunk";
 
 const initialState = {
   greetings: [
     {
       id: 1,
-      text: "Hello"
+      name: "Hello"
     },
     {
       id: 2,
-      text: "World"
+      name: "World"
     }
   ]
 }
@@ -16,11 +18,15 @@ const initialState = {
 function rootReducer(state = initialState, action) {
   console.log(action.type, 'TEST');
   switch (action.type) {
+    case "GET_GREETINGS_SUCCESS":
+      console.log(action.json);
+      return { greetings: action.json.greetings };
     default:
       return state;
   }
 }
 
 export default function configureStore(initialState) {
-  return createStore(rootReducer, initialState);
+  const store = createStore(rootReducer, initialState, applyMiddleware(thunk));
+  return store;
 }
