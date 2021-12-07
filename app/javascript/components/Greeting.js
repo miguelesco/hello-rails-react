@@ -27,14 +27,13 @@ class Greeting extends React.Component {
   render () {
 
     let { greeting } = this.props
-    console.log(greeting)
     const ramdomNumber = Math.floor(Math.random() * 5)
     greeting = greeting[ramdomNumber]
 
 
     return (
       <React.Fragment>
-        Greeting: {greeting.name}
+        Greeting: {greeting?.name ? greeting.name: "No greeting"} 
 
         <br />
         <button onClick={this.props.getGreeting}>Get Greeting</button>
