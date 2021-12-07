@@ -15,7 +15,7 @@ This a Ruby on Rails project is for test the gem with React and display multiple
 1. Clone the repo
 
    ```sh
-   git@github.com:miguelesco/recipe_app.git
+   git@github.com:miguelesco/hello-rails-react.git
    ```
 
 ### Usage
